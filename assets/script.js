@@ -1,5 +1,6 @@
 var inputField = $("#searchContent");
 var selectedEvent = "";
+//Add save buttons to each event
 
 function getDetails (selectedEvent) {
     console.log(selectedEvent)
@@ -21,17 +22,34 @@ function listEvents (eventList){
             var listContent = eventList._embedded.events[i].name;          
             var listItem = $("<li>")
             listItem.text(listContent)
+            var saveBtn = $("<button>");
+            saveBtn.addClass("save pl-2");
+            saveBtn.text("Save");
+            listItem.append(saveBtn);
             eventData.append(listItem)
+
+
+            saveBtn.append(saveBtn);
         } else  if (i === 10) {
             var listContent = eventList._embedded.events[i].name;          
             var listItem = $("<li>")
             listItem.text(listContent)
+            var saveBtn = $("<button>");
+            saveBtn.addClass("save pl-2");
+            saveBtn.text("Save");
+            listItem.append(saveBtn);
             eventData.append(listItem)
+
         } else  if (i === 0) {
             var listContent = eventList._embedded.events[i].name;          
             var listItem = $("<li>")
             listItem.text(listContent)
+            var saveBtn = $("<button>");
+            saveBtn.addClass("save pl-2");
+            saveBtn.text("Save");
+            listItem.append(saveBtn);
             eventData.append(listItem)
+
         }
     }
     
@@ -68,4 +86,8 @@ $("#searchBtn").on("click", function (event) {
 
 $("#searchContent").on("click", function (event) {
     $("li").remove;
+})
+
+$(".save").on("click", function (event) {
+    console.log(event.target);
 })
