@@ -22,7 +22,7 @@ function listEvents (eventList){
     var createList = $("ul");
     // console.log(Object.keys(eventList))
     // console.log(eventList._embedded.events[0].name)
-    var listLenght = (eventList._embedded.events).lenght;
+    var listLenght = (eventList._embedded.events).length;
     console.log(listLenght)
     for (i=0; i<20; i++) {
         // console.log(i)
