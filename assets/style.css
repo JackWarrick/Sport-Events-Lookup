@@ -6,4 +6,66 @@ header{
     font-family: 'Exo', sans-serif; 
     background-color: gray;
     color:azure;
+    display: flex;
+    flex-direction: column;
+  align-items: center;
+    line-height: 4rem;
+    position: relative;
+    border: solid white 2px;
+}
+
+h1{
+font-weight: bolder;
+display: flex;
+align-items: center;
+position: relative;
+padding: 8px;
+
+}
+
+h2{
+    padding: 8px;
+}
+
+#userInput{
+    font-family: 'Exo', sans-serif; 
+    background-color: gray;
+    color:azure;
+    display: flex;
+    flex-direction: column;
+  align-items: center;
+    line-height: 3rem;
+    position: relative;
+    border: solid white 2px;
+}
+
+#userInputBox{
+    flex-direction: row;
+    min-height: fit-content;
+    margin: 5px;
+}
+
+#searchContent{
+    width: 70vw;
+}
+
+#eventData{
+    background-color: gray;
+    height: 60vh;
+    border: solid white 2px;
+}
+
+
+#savedLinks{
+    font-family: 'Exo', sans-serif; 
+    background-color: gray;
+    color:azure;
+    display: flex;
+    flex-direction: column;
+  align-items: center;
+    line-height: 3rem;
+    position: relative;
+    height: 20vh;
+    border: solid white 2px;
+
 }
