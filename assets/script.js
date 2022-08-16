@@ -1,9 +1,9 @@
-var selectedEvent;
+var inputField = $("#searchContent");
+var selectedEvent = "";
 
-giphy_api_key = "zKsrL3sONOeU92wG57qelrE2JHo6YYuq"
-
-function getDetails () {
-    fetch ("https://app.ticketmaster.com/discovery/v2/events.json?keyword=sport&apikey=L1f0qVkObKA2D1lhYQU448E7zden8lo0")
+function getDetails (selectedEvent) {
+    console.log(selectedEvent)
+    fetch ("https://app.ticketmaster.com/discovery/v2/events.json?keyword="+selectedEvent+"&apikey=L1f0qVkObKA2D1lhYQU448E7zden8lo0")
     .then(function (eventdata) {
         return eventdata.json();
     })
@@ -14,27 +14,28 @@ function getDetails () {
     });
 }
 
-getDetails();
-// getGiphy();
-
-// for (i in eventList) 
 function listEvents (eventList){
-    var createList = $("ul");
-    // console.log(Object.keys(eventList))
-    // console.log(eventList._embedded.events[0].name)
-    var listLength = (eventList._embedded.events);
-    console.log(listLength)
+    var eventData = $("#eventData");
     for (i=0; i<20; i++) {
-        // console.log(i)
-        var listContent = eventList._embedded.events[i].name;
-        // console.log(listContent)
-        var listItem = $("<li>")
-        listItem.text(listContent)
-        createList.append(listItem)
+        if (i === 19) {
+            var listContent = eventList._embedded.events[i].name;          
+            var listItem = $("<li>")
+            listItem.text(listContent)
+            eventData.append(listItem)
+        } else  if (i === 10) {
+            var listContent = eventList._embedded.events[i].name;          
+            var listItem = $("<li>")
+            listItem.text(listContent)
+            eventData.append(listItem)
+        } else  if (i === 0) {
+            var listContent = eventList._embedded.events[i].name;          
+            var listItem = $("<li>")
+            listItem.text(listContent)
+            eventData.append(listItem)
+        }
     }
     
 }
-
 
 function getGiphy () {
     fetch ("https://api.giphy.com/v1/gifs/search?q=BostonRedSox&apikey=zKsrL3sONOeU92wG57qelrE2JHo6YYuq")
@@ -45,11 +46,9 @@ function getGiphy () {
         console.log(gif)
         getGifURL(gif)
     });
-    // getdetails();
 }
 
 function getGifURL (gif) {
-    // var imageURL = "null"
     var imageURL = gif.data[0].images.original.url;
     showGif(imageURL)
 
@@ -58,6 +57,15 @@ function showGif (imageURL) {
     var image = document.getElementById("#first-image");
     console.log(imageURL)
     console.log(typeof(imageURL))
-    // image.setAttribute("src", imageURL)
     $("#first-image").attr("src", imageURL)
 }
+
+$("#searchBtn").on("click", function (event) {
+    event.preventDefault();
+    selectedEvent = inputField.val()
+    getDetails(selectedEvent);
+})
+
+$("#searchContent").on("click", function (event) {
+    $("li").remove;
+})
