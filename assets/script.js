@@ -22,8 +22,8 @@ function listEvents (eventList){
     var createList = $("ul");
     // console.log(Object.keys(eventList))
     // console.log(eventList._embedded.events[0].name)
-    var listLenght = (eventList._embedded.events).lenght;
-    console.log(listLenght)
+    var listLength = (eventList._embedded.events);
+    console.log(listLength)
     for (i=0; i<20; i++) {
         // console.log(i)
         var listContent = eventList._embedded.events[i].name;
@@ -35,7 +35,6 @@ function listEvents (eventList){
     
 }
 
-var firstChildUl = document.getElementById("first-child-ul");
 
 function getGiphy () {
     fetch ("https://api.giphy.com/v1/gifs/search?q=BostonRedSox&apikey=zKsrL3sONOeU92wG57qelrE2JHo6YYuq")
