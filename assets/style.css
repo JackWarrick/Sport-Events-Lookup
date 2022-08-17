@@ -30,7 +30,6 @@ h2{
 #userInput{
     font-family: 'Exo', sans-serif; 
     background-color: gray;
-    color:azure;
     display: flex;
     flex-direction: column;
   align-items: center;
