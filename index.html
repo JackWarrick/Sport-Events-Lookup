@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Find events on a date</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
     <link href="https://fonts.googleapis.com/css2?family=Exo&family=Rubik+Puddles&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/style.css">
 </head>
@@ -12,16 +13,21 @@
 
 <body>
 
+
 <header>
 
-    <h1>Search for events here</h1>
+    <h1 class="text-3xl">EVENTS LOOKUP</h1>
+    
 
 </header>
 
 <!-- A div for the user to search for events -->
 <div id = "userInput">
-    <input id = "searchContent" type="text" placeholder="Search for events">
-    <button id = "searchBtn">ENTER</button>
+    <h2 class="text-xl">Lookup a sport to see events</h2>
+    <div id = "userInputBox">
+    <input id = "searchContent" type="text" placeholder="Search for events" class = "min">
+    <button id = "searchBtn" class="bg-red-500 hover:bg-red-700 text-white font-bold px-2 rounded">ENTER</button>
+    </div>
 </div>
 
 <!-- A div to display the data from the Ticketmaster and Giphy APIs -->
@@ -30,8 +36,14 @@
 
 </div>
 
+<div id = "savedLinks">
+
+    <h3>Saved Links</h3>
+
+</div>
+
     
 </body>
-<script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="assets/script.js"></script>
 </html>
