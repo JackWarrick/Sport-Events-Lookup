@@ -2,6 +2,11 @@ var myAPIKey = "SAXntyHmrGZmWaUuGDNAikMs0GesRqm7";
 var attilaKey = "L1f0qVkObKA2D1lhYQU448E7zden8lo0";
 var inputField = $("#searchContent");
 var selectedEvent = "";
+var joinName = "";
+var gifList = [];
+var gifURLList = [];
+var giphyCall = "";
+
 var searchedEvents = [];//List of events currently displayed
 var savedLinks = [];//List of links the user saved
 
@@ -23,83 +28,146 @@ function initialize(){
     }
 }
 
+//Call ticketmaster API for the netered event type i.e.:football, baseball
 function getDetails (selectedEvent) {
-    console.log(selectedEvent)
     fetch ("https://app.ticketmaster.com/discovery/v2/events.json?keyword="+selectedEvent+"&apikey=" + myAPIKey)
     .then(function (eventdata) {
         return eventdata.json();
     })
     .then(function (eventList) {
-        console.log(eventList)
         listEvents(eventList)
-        getGiphy();
     });
 }
 
+// Dispalys event, link to event on screen creats image element for gif
 function listEvents (eventList){
-    var eventData = $("#eventData");
+    var eventData = $("#innerData");
+    var eventData2 = $("#innerData2");
+    var eventData3 = $("#innerData3");
     for (i=0; i<20; i++) {
         if (i === 19) {
-            var listContent = eventList._embedded.events[i].name;          
+            var listContent = eventList._embedded.events[i].name;   
+            var linkContent = eventList._embedded.events[i].url;       
             var listItem = $("<li>")
+            var linkToEvent = $("<a>")
+            var image = $("<img>")
+            listItem.addClass("event")
+            linkToEvent.addClass("event")
+            image.addClass("event")
             listItem.text(listContent)
+            linkToEvent.html("<a href="+linkContent+" target='_blank'>Link to the event</a>")
+            image.attr("id", "first-image");
+            eventData3.append(listItem)
+            eventData3.append(linkToEvent)
+            eventData3.append(image)
+            var joinName = listContent.split("vs.")[0]
+            var splitArray = []
+            var words = joinName.split(" ")
+            splitArray.push(words)
+            var gifName3 = splitArray.join("-")
+            gifList.push(gifName3);
             var saveBtn = $("<button>");
             saveBtn.addClass("save-event ml-2 my-2 p-1 bg-indigo-500 hover:bg-indigo-600 text-white font-bold rounded");
             saveBtn.attr("data-index", searchedEvents.length);
             saveBtn.text("Save");
             listItem.append(saveBtn);
-            eventData.append(listItem)
             searchedEvents.push(eventList._embedded.events[i]);
         } else  if (i === 10) {
-            var listContent = eventList._embedded.events[i].name;          
+            var listContent = eventList._embedded.events[i].name;   
+            var linkContent = eventList._embedded.events[i].url;       
             var listItem = $("<li>")
+            var linkToEvent = $("<a>")
+            var image = $("<img>")
+            listItem.addClass("event")
+            linkToEvent.addClass("event")
+            image.addClass("event")
             listItem.text(listContent)
+            linkToEvent.html("<a href="+linkContent+" target='_blank'>Link to the event</a>")
+            image.attr("id", "second-image");
+            eventData2.append(listItem)
+            eventData2.append(linkToEvent)
+            eventData2.append(image)
+            var joinName = listContent.split("vs.")[0]
+            var splitArray = []
+            var words = joinName.split(" ")
+            splitArray.push(words)
+            var gifName2 = splitArray.join("-")
+            gifList.push(gifName2);
             var saveBtn = $("<button>");
             saveBtn.addClass("save-event ml-2 my-2 p-1 bg-indigo-500 hover:bg-indigo-600 text-white font-bold rounded");
             saveBtn.attr("data-index", searchedEvents.length);
             saveBtn.text("Save");
             listItem.append(saveBtn);
-            eventData.append(listItem)
             searchedEvents.push(eventList._embedded.events[i]);
         } else  if (i === 0) {
-            var listContent = eventList._embedded.events[i].name;          
+            var listContent = eventList._embedded.events[i].name;   
+            var linkContent = eventList._embedded.events[i].url;       
             var listItem = $("<li>")
+            var linkToEvent = $("<a>")
+            var image = $("<img>")
+            listItem.addClass("event")
+            linkToEvent.addClass("event")
+            image.addClass("event")
             listItem.text(listContent)
+            linkToEvent.html("<a href="+linkContent+" target='_blank'>Link to the event</a>")
+            image.attr("id", "third-image");
+            eventData.append(listItem)
+            eventData.append(linkToEvent)
+            eventData.append(image)
+            var joinName = listContent.split("vs.")[0]
+            var splitArray = []
+            var words = joinName.split(" ")
+            splitArray.push(words)
+            var gifName = splitArray.join("-")
+            gifList.push(gifName)
             var saveBtn = $("<button>");
             saveBtn.attr("class", "save-event ml-2 my-2 p-1 bg-indigo-500 hover:bg-indigo-600 text-white font-bold rounded");
             saveBtn.attr("data-index", searchedEvents.length);
             saveBtn.text("Save");
             listItem.append(saveBtn);
-            eventData.append(listItem)
             searchedEvents.push(eventList._embedded.events[i]);
+
         }
     }
+    callGiphy();
     
 }
 
-function getGiphy () {
-    fetch ("https://api.giphy.com/v1/gifs/search?q=BostonRedSox&apikey=zKsrL3sONOeU92wG57qelrE2JHo6YYuq")
+// Calls giphy API for the 3 displayed events
+function callGiphy () {
+    for (a=0; a<3; a++) {
+        giphyCall = gifList[a];
+        getGiphy(giphyCall)
+    }
+}
+
+// Giphy API call
+function getGiphy (giphyCall) {
+    fetch ("https://api.giphy.com/v1/gifs/search?q="+giphyCall+"&apikey=zKsrL3sONOeU92wG57qelrE2JHo6YYuq")
     .then(function (giphydata) {
         return giphydata.json();
     })
     .then(function (gif) {
-        console.log(gif)
         getGifURL(gif)
     });
 }
 
+// Gets url for gifs to dispaly
 function getGifURL (gif) {
     var imageURL = gif.data[0].images.original.url;
-    showGif(imageURL)
+    gifURLList.push(imageURL)
+    showGif()
 
 }
-function showGif (imageURL) {
-    var image = document.getElementById("#first-image");
-    console.log(imageURL)
-    console.log(typeof(imageURL))
-    $("#first-image").attr("src", imageURL)
+
+// Adds content to image elements
+function showGif () {
+    $("#first-image").attr("src", gifURLList[0])
+    $("#second-image").attr("src", gifURLList[1])
+    $("#third-image").attr("src", gifURLList[2])
 }
 
+// Event listener for search button
 $("#searchBtn").on("click", function (event) {
     event.preventDefault();
     selectedEvent = inputField.val()
@@ -136,3 +204,4 @@ $("#eventData").on("click", ".save-event", function (event) {
 })
 
 initialize();
+
