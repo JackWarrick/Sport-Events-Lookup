@@ -179,7 +179,7 @@ $("#searchContent").on("click", function (event) {
 })
 
 //Saves the event to local storage and append event to saved links
-$("#innerData").on("click", ".save-event", function (event) {
+$("#eventData").on("click", ".save-event", function (event) {
     var eventObject = searchedEvents[event.target.getAttribute("data-index")];//searchedEvents = [{eventObject}, {eventObject}, ....]
     var eventName = eventObject.name;
 
