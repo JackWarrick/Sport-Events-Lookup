@@ -57,6 +57,9 @@ function listEvents (eventList){
             listItem.text(listContent)
             linkToEvent.html("<a href="+linkContent+" target='_blank'>Link to the event</a>")
             image.attr("id", "first-image");
+            eventData3.append(listItem)
+            eventData3.append(linkToEvent)
+            eventData3.append(image)
             var joinName = listContent.split("vs.")[0]
             var splitArray = []
             var words = joinName.split(" ")
@@ -67,11 +70,7 @@ function listEvents (eventList){
             saveBtn.addClass("save-event ml-2 my-2 p-1 bg-indigo-500 hover:bg-indigo-600 text-white font-bold rounded");
             saveBtn.attr("data-index", searchedEvents.length);
             saveBtn.text("Save");
-            eventData3.append(listItem)
-            eventData3.append(linkToEvent)
-            eventData3.append(image)
             listItem.append(saveBtn);
-            // eventData3.append(listItem)
             searchedEvents.push(eventList._embedded.events[i]);
         } else  if (i === 10) {
             var listContent = eventList._embedded.events[i].name;   
@@ -99,7 +98,6 @@ function listEvents (eventList){
             saveBtn.attr("data-index", searchedEvents.length);
             saveBtn.text("Save");
             listItem.append(saveBtn);
-            // eventData2.append(listItem)
             searchedEvents.push(eventList._embedded.events[i]);
         } else  if (i === 0) {
             var listContent = eventList._embedded.events[i].name;   
@@ -127,7 +125,6 @@ function listEvents (eventList){
             saveBtn.attr("data-index", searchedEvents.length);
             saveBtn.text("Save");
             listItem.append(saveBtn);
-            eventData.append(listItem)
             searchedEvents.push(eventList._embedded.events[i]);
 
         }
