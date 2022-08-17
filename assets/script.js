@@ -76,7 +76,6 @@ function listEvents (eventList){
             eventData.append(listItem)
             eventData.append(linkToEvent)
             eventData.append(image)
-            // console.log(listContent)
             var joinName = listContent.split("vs.")[0]
             var splitArray = []
             var words = joinName.split(" ")
