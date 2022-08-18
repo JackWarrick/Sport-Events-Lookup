@@ -24,6 +24,7 @@ function initialize(){
         $newLink.attr("href", eventObject.url);
         $newLink.attr("target", "_blank");//opens the link in a new browser tab when user clicks on it
         $newLink.text(eventName);
+        $newLink.addClass("underline underline-offset-1")
         $("#savedLinks").append($newLink);
     }
 }
@@ -70,7 +71,7 @@ function listEvents (eventList){
             var gifName3 = splitArray.join("-");
             gifList.push(gifName3);
             var saveBtn = $("<button>");
-            saveBtn.addClass("save-event ml-2 my-2 p-1 bg-indigo-500 hover:bg-indigo-600 text-white font-bold rounded");
+            saveBtn.addClass("save-event ml-2 my-2 p-1 bg-red-500 hover:bg-red-700 text-white font-bold rounded");
             saveBtn.attr("data-index", searchedEvents.length);
             saveBtn.text("Save");
             listItem.append(saveBtn);
@@ -97,7 +98,7 @@ function listEvents (eventList){
             var gifName2 = splitArray.join("-");
             gifList.push(gifName2);
             var saveBtn = $("<button>");
-            saveBtn.addClass("save-event ml-2 my-2 p-1 bg-indigo-500 hover:bg-indigo-600 text-white font-bold rounded");
+            saveBtn.addClass("save-event ml-2 my-2 p-1 bg-red-500 hover:bg-red-700 text-white font-bold rounded");
             saveBtn.attr("data-index", searchedEvents.length);
             saveBtn.text("Save");
             listItem.append(saveBtn);
@@ -124,7 +125,7 @@ function listEvents (eventList){
             var gifName = splitArray.join("-");
             gifList.push(gifName);
             var saveBtn = $("<button>");
-            saveBtn.attr("class", "save-event ml-2 my-2 p-1 bg-indigo-500 hover:bg-indigo-600 text-white font-bold rounded");
+            saveBtn.attr("class", "save-event ml-2 my-2 p-1 bg-red-500 hover:bg-red-700 text-white font-bold rounded");
             saveBtn.attr("data-index", searchedEvents.length);
             saveBtn.text("Save");
             listItem.append(saveBtn);
@@ -158,7 +159,6 @@ function getGifURL (gif) {
     var imageURL = gif.data[0].images.original.url;
     gifURLList.push(imageURL);
     showGif();
-
 }
 
 // Adds content to image elements
@@ -193,7 +193,7 @@ $("#searchContent").keypress(function (enter) {
 $("#searchContent").on("click", function (event) {
     $("li").remove();
     $("img").remove();
-    $("a").remove();
+    $("a.event").remove();
 })
 
 //Saves the event to local storage and append event to saved links
@@ -215,6 +215,7 @@ $("#eventData").on("click", ".save-event", function (event) {
     var $newLink = $("<a>");
     $newLink.attr("href", eventObject.url);
     $newLink.attr("target", "_blank");
+    $newLink.addClass("underline underline-offset-1")
     $newLink.text(eventName);
     $("#savedLinks").append($newLink);
     savedLinks.push(eventObject);

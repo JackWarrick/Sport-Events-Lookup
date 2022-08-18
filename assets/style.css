@@ -1,5 +1,5 @@
 body{
-    background-color: bisque;
+    background-color: gray;
 }
 
 header{
@@ -28,8 +28,8 @@ h2{
 }
 
 img {
-    width: 25%;
-    height: 25%;
+    width: 50%;
+    height: 50%;
 }
 
 li {
@@ -76,7 +76,23 @@ li {
     position: relative;
     height: 20vh;
     border: solid white 2px;
+    padding-top: 5px;
 
+}
+
+#savedLinksBox{
+    font-family: 'Exo', sans-serif; 
+    background-color: gray;
+    display: flex;
+    flex-direction: column;
+  align-items: center;
+    line-height: 3rem;
+    position: relative;
+    border: solid white 2px;
+    flex-direction: row;
+    min-height: fit-content;
+    margin: 5px;
+    
 }
 
 .container {
@@ -89,4 +105,14 @@ li {
     flex-direction: column;
     flex-wrap: wrap;    
     justify-content: center;
+
+}
+
+a{
+    text-decoration: underline;
+}
+
+a:hover {
+    font-weight: bolder;
+    color: white;
 }
