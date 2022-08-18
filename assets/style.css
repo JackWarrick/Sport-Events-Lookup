@@ -28,8 +28,8 @@ h2{
 }
 
 img {
-    width: 25%;
-    height: 25%;
+    width: 50%;
+    height: 50%;
 }
 
 #userInput{
@@ -57,6 +57,8 @@ img {
     background-color: gray;
     height: 60vh;
     border: solid white 2px;
+    min-width: 100%;
+
 }
 
 
@@ -80,7 +82,11 @@ img {
 }
 
 .inner_container {
+    background-color: white;
     display: flex;
     flex-wrap: wrap;    
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
+
 }

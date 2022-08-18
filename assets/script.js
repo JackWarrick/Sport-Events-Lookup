@@ -72,6 +72,7 @@ function listEvents (eventList){
             saveBtn.text("Save");
             listItem.append(saveBtn);
             searchedEvents.push(eventList._embedded.events[i]);
+            eventData3.attr("class", "inner_container border-solid border-4 border-red-500 rounded m-8 p-4");
         } else  if (i === 10) {
             var listContent = eventList._embedded.events[i].name;   
             var linkContent = eventList._embedded.events[i].url;       
@@ -99,6 +100,7 @@ function listEvents (eventList){
             saveBtn.text("Save");
             listItem.append(saveBtn);
             searchedEvents.push(eventList._embedded.events[i]);
+            eventData2.attr("class", "inner_container border-solid border-4 border-red-500 rounded m-8 p-4");
         } else  if (i === 0) {
             var listContent = eventList._embedded.events[i].name;   
             var linkContent = eventList._embedded.events[i].url;       
@@ -126,7 +128,7 @@ function listEvents (eventList){
             saveBtn.text("Save");
             listItem.append(saveBtn);
             searchedEvents.push(eventList._embedded.events[i]);
-
+            eventData.attr("class", "inner_container border-solid border-4 border-red-500 rounded m-8 p-4");
         }
     }
     callGiphy();
@@ -175,7 +177,12 @@ $("#searchBtn").on("click", function (event) {
 })
 
 $("#searchContent").on("click", function (event) {
-    $("li").remove;
+    gifList = [];
+    gifURLList = [];
+    $(".event").remove();
+    $(".inner_container").attr("class", "inner_container");
+
+
 })
 
 //Saves the event to local storage and append event to saved links
