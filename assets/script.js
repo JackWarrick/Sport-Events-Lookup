@@ -24,6 +24,7 @@ function initialize(){
         $newLink.attr("href", eventObject.url);
         $newLink.attr("target", "_blank");//opens the link in a new browser tab when user clicks on it
         $newLink.text(eventName);
+        $newLink.addClass("underline underline-offset-1")
         $("#savedLinks").append($newLink);
     }
 }
@@ -35,12 +36,15 @@ function getDetails (selectedEvent) {
         return eventdata.json();
     })
     .then(function (eventList) {
+        console.log(eventList)
         listEvents(eventList)
     });
 }
 
-// Dispalys event, link to event on screen creats image element for gif
+// Dispalys event and link to event on screen, creats image element for gif
 function listEvents (eventList){
+    gifList.length = [];
+    gifURLList = [];
     var eventData = $("#innerData");
     var eventData2 = $("#innerData2");
     var eventData3 = $("#innerData3");
@@ -48,26 +52,26 @@ function listEvents (eventList){
         if (i === 19) {
             var listContent = eventList._embedded.events[i].name;   
             var linkContent = eventList._embedded.events[i].url;       
-            var listItem = $("<li>")
-            var linkToEvent = $("<a>")
-            var image = $("<img>")
-            listItem.addClass("event")
-            linkToEvent.addClass("event")
-            image.addClass("event")
-            listItem.text(listContent)
-            linkToEvent.html("<a href="+linkContent+" target='_blank'>Link to the event</a>")
+            var listItem = $("<li>");
+            var linkToEvent = $("<a>");
+            var image = $("<img>");
+            listItem.addClass("event");
+            linkToEvent.addClass("event");
+            image.addClass("event");
+            listItem.text(listContent);
+            linkToEvent.html("<a href="+linkContent+" target='_blank'>Click here for ticket info and seat map</a>");
             image.attr("id", "first-image");
-            eventData3.append(listItem)
-            eventData3.append(linkToEvent)
-            eventData3.append(image)
-            var joinName = listContent.split("vs.")[0]
-            var splitArray = []
-            var words = joinName.split(" ")
-            splitArray.push(words)
-            var gifName3 = splitArray.join("-")
+            eventData3.append(listItem);
+            eventData3.append(linkToEvent);
+            eventData3.append(image);
+            var joinName = listContent.split("vs.")[0];
+            var splitArray = [];
+            var words = joinName.split(" ");
+            splitArray.push(words);
+            var gifName3 = splitArray.join("-");
             gifList.push(gifName3);
             var saveBtn = $("<button>");
-            saveBtn.addClass("save-event ml-2 my-2 p-1 bg-indigo-500 hover:bg-indigo-600 text-white font-bold rounded");
+            saveBtn.addClass("save-event ml-2 my-2 p-1 bg-red-500 hover:bg-red-700 text-white font-bold rounded");
             saveBtn.attr("data-index", searchedEvents.length);
             saveBtn.text("Save");
             listItem.append(saveBtn);
@@ -76,26 +80,26 @@ function listEvents (eventList){
         } else  if (i === 10) {
             var listContent = eventList._embedded.events[i].name;   
             var linkContent = eventList._embedded.events[i].url;       
-            var listItem = $("<li>")
-            var linkToEvent = $("<a>")
-            var image = $("<img>")
-            listItem.addClass("event")
-            linkToEvent.addClass("event")
-            image.addClass("event")
-            listItem.text(listContent)
-            linkToEvent.html("<a href="+linkContent+" target='_blank'>Link to the event</a>")
+            var listItem = $("<li>");
+            var linkToEvent = $("<a>");
+            var image = $("<img>");
+            listItem.addClass("event");
+            linkToEvent.addClass("event");
+            image.addClass("event");
+            listItem.text(listContent);
+            linkToEvent.html("<a href="+linkContent+" target='_blank'>Click here for ticket info and seat map</a>");
             image.attr("id", "second-image");
-            eventData2.append(listItem)
-            eventData2.append(linkToEvent)
-            eventData2.append(image)
-            var joinName = listContent.split("vs.")[0]
-            var splitArray = []
-            var words = joinName.split(" ")
-            splitArray.push(words)
-            var gifName2 = splitArray.join("-")
+            eventData2.append(listItem);
+            eventData2.append(linkToEvent);
+            eventData2.append(image);
+            var joinName = listContent.split("vs.")[0];
+            var splitArray = [];
+            var words = joinName.split(" ");
+            splitArray.push(words);
+            var gifName2 = splitArray.join("-");
             gifList.push(gifName2);
             var saveBtn = $("<button>");
-            saveBtn.addClass("save-event ml-2 my-2 p-1 bg-indigo-500 hover:bg-indigo-600 text-white font-bold rounded");
+            saveBtn.addClass("save-event ml-2 my-2 p-1 bg-red-500 hover:bg-red-700 text-white font-bold rounded");
             saveBtn.attr("data-index", searchedEvents.length);
             saveBtn.text("Save");
             listItem.append(saveBtn);
@@ -104,42 +108,42 @@ function listEvents (eventList){
         } else  if (i === 0) {
             var listContent = eventList._embedded.events[i].name;   
             var linkContent = eventList._embedded.events[i].url;       
-            var listItem = $("<li>")
-            var linkToEvent = $("<a>")
-            var image = $("<img>")
-            listItem.addClass("event")
-            linkToEvent.addClass("event")
-            image.addClass("event")
-            listItem.text(listContent)
-            linkToEvent.html("<a href="+linkContent+" target='_blank'>Link to the event</a>")
+            var listItem = $("<li>");
+            var linkToEvent = $("<a>");
+            var image = $("<img>");
+            listItem.addClass("event");
+            linkToEvent.addClass("event");
+            image.addClass("event");
+            listItem.text(listContent);
+            linkToEvent.html("<a href="+linkContent+" target='_blank'>Click here for ticket info and seat map</a>");
             image.attr("id", "third-image");
-            eventData.append(listItem)
-            eventData.append(linkToEvent)
-            eventData.append(image)
-            var joinName = listContent.split("vs.")[0]
-            var splitArray = []
-            var words = joinName.split(" ")
-            splitArray.push(words)
-            var gifName = splitArray.join("-")
-            gifList.push(gifName)
+            eventData.append(listItem);
+            eventData.append(linkToEvent);
+            eventData.append(image);
+            var joinName = listContent.split("vs.")[0];
+            var splitArray = [];
+            var words = joinName.split(" ");
+            splitArray.push(joinName);
+            var gifName = splitArray.join("-");
+            gifList.push(gifName);
             var saveBtn = $("<button>");
-            saveBtn.attr("class", "save-event ml-2 my-2 p-1 bg-indigo-500 hover:bg-indigo-600 text-white font-bold rounded");
+            saveBtn.attr("class", "save-event ml-2 my-2 p-1 bg-red-500 hover:bg-red-700 text-white font-bold rounded");
             saveBtn.attr("data-index", searchedEvents.length);
             saveBtn.text("Save");
             listItem.append(saveBtn);
             searchedEvents.push(eventList._embedded.events[i]);
             eventData.attr("class", "inner_container border-solid border-4 border-red-500 rounded m-8 p-4");
+
         }
     }
-    callGiphy();
-    
+    callGiphy();    
 }
 
 // Calls giphy API for the 3 displayed events
 function callGiphy () {
     for (a=0; a<3; a++) {
         giphyCall = gifList[a];
-        getGiphy(giphyCall)
+        getGiphy(giphyCall);
     }
 }
 
@@ -150,38 +154,53 @@ function getGiphy (giphyCall) {
         return giphydata.json();
     })
     .then(function (gif) {
-        getGifURL(gif)
+        getGifURL(gif);
     });
 }
 
 // Gets url for gifs to dispaly
 function getGifURL (gif) {
     var imageURL = gif.data[0].images.original.url;
-    gifURLList.push(imageURL)
-    showGif()
-
+    gifURLList.push(imageURL);
+    showGif();
 }
 
 // Adds content to image elements
 function showGif () {
-    $("#first-image").attr("src", gifURLList[0])
-    $("#second-image").attr("src", gifURLList[1])
-    $("#third-image").attr("src", gifURLList[2])
+    $("#first-image").attr("src", gifURLList[0]);
+    $("#second-image").attr("src", gifURLList[1]);
+    $("#third-image").attr("src", gifURLList[2]);
 }
 
 // Event listener for search button
 $("#searchBtn").on("click", function (event) {
     event.preventDefault();
-    selectedEvent = inputField.val()
+    selectedEvent = inputField.val();
     getDetails(selectedEvent);
 })
 
+//Event listener for clear history
+$("#resetBtn").on("click", function () {
+    localStorage.clear();
+    location.reload();
+})
+
+//Event listener for enter key
+$("#searchContent").keypress(function (enter) {
+    if (enter.which === 13) {
+        selectedEvent = inputField.val();
+        getDetails(selectedEvent);
+    }
+})
+
+//Remove previus search content
 $("#searchContent").on("click", function (event) {
     gifList = [];
     gifURLList = [];
-    $(".event").remove();
+    $("li").remove();
+    $("img").remove();
+    $("a.event").remove();
     $(".inner_container").attr("class", "inner_container");
-
 
 })
 
@@ -204,6 +223,7 @@ $("#eventData").on("click", ".save-event", function (event) {
     var $newLink = $("<a>");
     $newLink.attr("href", eventObject.url);
     $newLink.attr("target", "_blank");
+    $newLink.addClass("underline underline-offset-1")
     $newLink.text(eventName);
     $("#savedLinks").append($newLink);
     savedLinks.push(eventObject);

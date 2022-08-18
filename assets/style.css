@@ -1,5 +1,5 @@
 body{
-    background-color: bisque;
+    background-color: gray;
 }
 
 header{
@@ -32,6 +32,10 @@ img {
     height: 50%;
 }
 
+li {
+    list-style-type: none;
+}
+
 #userInput{
     font-family: 'Exo', sans-serif; 
     background-color: gray;
@@ -58,7 +62,6 @@ img {
     height: 60vh;
     border: solid white 2px;
     min-width: 100%;
-
 }
 
 
@@ -73,7 +76,23 @@ img {
     position: relative;
     height: 20vh;
     border: solid white 2px;
+    padding-top: 5px;
 
+}
+
+#savedLinksBox{
+    font-family: 'Exo', sans-serif; 
+    background-color: gray;
+    display: flex;
+    flex-direction: column;
+  align-items: center;
+    line-height: 3rem;
+    position: relative;
+    border: solid white 2px;
+    flex-direction: row;
+    min-height: fit-content;
+    margin: 5px;
+    
 }
 
 .container {
@@ -84,9 +103,23 @@ img {
 .inner_container {
     background-color: white;
     display: flex;
+    flex-direction: column;
     flex-wrap: wrap;    
     flex-direction: column;
     justify-content: center;
     align-items: center;
 
+}
+
+a{
+    text-decoration: underline;
+}
+
+a:hover {
+    font-weight: bolder;
+    color: white;
+}
+
+a.event a:hover{
+    color: lightslategray;
 }
