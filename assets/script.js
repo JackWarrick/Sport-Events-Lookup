@@ -76,6 +76,7 @@ function listEvents (eventList){
             saveBtn.text("Save");
             listItem.append(saveBtn);
             searchedEvents.push(eventList._embedded.events[i]);
+            eventData3.attr("class", "inner_container border-solid border-4 border-red-500 rounded m-8 p-4");
         } else  if (i === 10) {
             var listContent = eventList._embedded.events[i].name;   
             var linkContent = eventList._embedded.events[i].url;       
@@ -103,6 +104,7 @@ function listEvents (eventList){
             saveBtn.text("Save");
             listItem.append(saveBtn);
             searchedEvents.push(eventList._embedded.events[i]);
+            eventData2.attr("class", "inner_container border-solid border-4 border-red-500 rounded m-8 p-4");
         } else  if (i === 0) {
             var listContent = eventList._embedded.events[i].name;   
             var linkContent = eventList._embedded.events[i].url;       
@@ -130,6 +132,8 @@ function listEvents (eventList){
             saveBtn.text("Save");
             listItem.append(saveBtn);
             searchedEvents.push(eventList._embedded.events[i]);
+            eventData.attr("class", "inner_container border-solid border-4 border-red-500 rounded m-8 p-4");
+
         }
     }
     callGiphy();    
@@ -194,6 +198,8 @@ $("#searchContent").on("click", function (event) {
     $("li").remove();
     $("img").remove();
     $("a.event").remove();
+    $(".inner_container").attr("class", "inner_container");
+
 })
 
 //Saves the event to local storage and append event to saved links
@@ -205,7 +211,6 @@ $("#eventData").on("click", ".save-event", function (event) {
     if(JSON.parse(localStorage.getItem("saved-events"))){
         for(var i = 0; i < savedLinks.length; i++){//locStore = [{object1}, {object2}, {object3}....]
             if(eventObject.id == savedLinks[i].id){
-                console.log("This item already exists");
                 return;
             }
         }

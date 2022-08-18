@@ -101,10 +101,12 @@ li {
 }
 
 .inner_container {
+    background-color: white;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;    
     justify-content: center;
+    align-items: center;
 
 }
 
@@ -115,4 +117,8 @@ a{
 a:hover {
     font-weight: bolder;
     color: white;
+}
+
+a.event a:hover{
+    color: lightslategray;
 }
