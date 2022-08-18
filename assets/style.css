@@ -32,6 +32,10 @@ img {
     height: 50%;
 }
 
+li {
+    list-style-type: none;
+}
+
 #userInput{
     font-family: 'Exo', sans-serif; 
     background-color: gray;
