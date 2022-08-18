@@ -195,8 +195,6 @@ $("#searchContent").keypress(function (enter) {
 
 //Remove previus search content
 $("#searchContent").on("click", function (event) {
-    gifList = [];
-    gifURLList = [];
     $("li").remove();
     $("img").remove();
     $("a.event").remove();
@@ -213,7 +211,6 @@ $("#eventData").on("click", ".save-event", function (event) {
     if(JSON.parse(localStorage.getItem("saved-events"))){
         for(var i = 0; i < savedLinks.length; i++){//locStore = [{object1}, {object2}, {object3}....]
             if(eventObject.id == savedLinks[i].id){
-                console.log("This item already exists");
                 return;
             }
         }
