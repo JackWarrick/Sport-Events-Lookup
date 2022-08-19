@@ -6,7 +6,7 @@ The project was built by using HTML, CSS, Tailwind, Javascript, and Jquery.
 
 ## Usage
 ![Alt text](/assets/images/startscreen.png)
-![Alt text](/asstes/images/searchscreen.png)
+![Alt text](/assets/images/searchscreen.png)
 https://jackwarrick.github.io/Sport-Events-Lookup/
 
 
