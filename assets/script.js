@@ -66,8 +66,7 @@ function listEvents (eventList){
             eventData3.append(image);
             var joinName = listContent.split("vs.")[0];
             var splitArray = [];
-            var words = joinName.split(" ");
-            splitArray.push(words);
+            splitArray.push(joinName);
             var gifName3 = splitArray.join("-");
             gifList.push(gifName3);
             var saveBtn = $("<button>");
@@ -94,8 +93,7 @@ function listEvents (eventList){
             eventData2.append(image);
             var joinName = listContent.split("vs.")[0];
             var splitArray = [];
-            var words = joinName.split(" ");
-            splitArray.push(words);
+            splitArray.push(joinName);
             var gifName2 = splitArray.join("-");
             gifList.push(gifName2);
             var saveBtn = $("<button>");
@@ -122,7 +120,6 @@ function listEvents (eventList){
             eventData.append(image);
             var joinName = listContent.split("vs.")[0];
             var splitArray = [];
-            var words = joinName.split(" ");
             splitArray.push(joinName);
             var gifName = splitArray.join("-");
             gifList.push(gifName);
@@ -149,6 +146,8 @@ function callGiphy () {
 
 // Giphy API call
 function getGiphy (giphyCall) {
+    console.log(gifList)
+    console.log(giphyCall)
     fetch ("https://api.giphy.com/v1/gifs/search?q="+giphyCall+"&apikey=zKsrL3sONOeU92wG57qelrE2JHo6YYuq")
     .then(function (giphydata) {
         return giphydata.json();
@@ -167,9 +166,10 @@ function getGifURL (gif) {
 
 // Adds content to image elements
 function showGif () {
-    $("#first-image").attr("src", gifURLList[0]);
+    console.log(gifURLList)
+    $("#first-image").attr("src", gifURLList[2]);
     $("#second-image").attr("src", gifURLList[1]);
-    $("#third-image").attr("src", gifURLList[2]);
+    $("#third-image").attr("src", gifURLList[0]);
 }
 
 // Event listener for search button

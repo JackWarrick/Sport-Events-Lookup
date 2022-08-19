@@ -1,11 +1,19 @@
 # Sport-Events-Lookup
 
 ## Description
-User can enter a type of sport and presented with 3 upcoming event. A link to ticket information and seat map is alos provided for the user. 
+Fans often knows when their favourite sport event is happening. They often want the best seat in the house as well. This application allows users to look for upcoming events in a type of sport. Presents the teams along with a link to the ticket site and seat map. Furthermore, the user can enjoy a gif that is related to the event. Users can save the links that is stored in the local storage for future use. 
+The project was built by using HTML, CSS, Tailwind, Javascript, and Jquery.
+
+## Usage
+![Alt text](/assets/images/startscreen.png)
+![Alt text](/assets/images/searchscreen.png)
+https://jackwarrick.github.io/Sport-Events-Lookup/
+
 
 ## Credits
 Event information is provided by ticketmaster.com
 Images are provided by giphy.com
 
 ## Badges
-https://img.shields.io/github/contributors/JackWarrick/Sport-Events-Lookup
+<img alt="GitHub contributors" src="https://img.shields.io/github/contributors/jackWarrick/Sport-Events-Lookup">
+   
