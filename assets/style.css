@@ -122,3 +122,12 @@ a:hover {
 a.event a:hover{
     color: lightslategray;
 }
+
+@media screen and (max-width: 640px) {
+    #eventData {
+        height: auto;
+    }
+    .container {
+        flex-direction: column;
+    }
+}
